@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>$_POST</title>
+</head>
+
+<body>
+    <form method="POST" action="$_post.php">
+        Name: <input type="text" name="fname">
+        <input type="submit">
+    </form>
+
+
+    <button onclick="myFunction()">Click me!</button>
+
+    <h1 id="demo"></h1>
+
+    <script>
+        function myFunction() {
+            const xhttp = new XMLHttpRequest();
+            xhttp.open("POST", "$_post.php");
+            xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+            xhttp.onload = function () {
+                document.getElementById("demo").innerHTML = this.responseText;
+            }
+            xhttp.send("fname=Mary");
+        }
+
+    </script>
+</body>
+
+</html>
